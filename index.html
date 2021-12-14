@@ -105,7 +105,7 @@
         <input class="none" type="text" name="result" id="result"  readonly />
         <input class="none" type="button" id="copy" onclick="myFunction()" value="Copy Sum">
         <br>
-        <input class="none" type="reset" id="reset"  value="Reset Data">
+        <input class="none" type="reset" id="reset" onclick="myRest()"  value="Reset Data">
 
     </form>
     </center>
@@ -178,7 +178,14 @@ function myFunction() {
       
       /* Alert the copied text */
       alert("Copied the text: " + copyText.value);
+    
 }
+    function myRest() {
+    
+        document.getElementById("result").classList.add("none");
+        document.getElementById("copy").classList.add("none");
+        document.getElementById("reset").classList.add("none");
+    }
 
 </script>
 
