@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator By AHK WEB SOLUTIONS</title>
+</head>
+<body>
+    <style>
+        
+        .container {
+            max-width: 400px;
+            border:2px dashed green;
+            margin: auto;
+            height: 28px;
+            height: auto;
+            color:blue;
+
+    }
+    #inta{
+        color:red;
+        border-color: blue;
+        border-radius: 5px;
+        font-size: large;
+        height: 40px;
+    }
+    #op{
+        color:red;
+        border-color: blue;
+        border-radius: 5px;
+        font-size: large;
+        height: 40px;
+        margin-top: 10px;
+    }
+    #intb{
+        color:red;
+        border-color: blue;
+        font-size: large;
+        border-radius: 5px;
+        height: 40px;
+        margin-left: 0px;
+    margin-top: 12px;
+    }
+    #result{
+        color:red;
+        border-color: blue;
+        border-radius: 5px;
+        width: 100%;
+        max-width: 206px;
+        font-size: large;
+        border-radius: 5px;
+        
+        height: 40px;
+    }
+    ::placeholder {
+  color: red;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+ color: red;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+ color: red;
+}
+.button{
+    color: green;
+    background-color: yellow;
+    font-size: large;
+    border-radius: 5px;
+    height: 45px;
+    width: 90px;
+    cursor: pointer;
+}
+.button:focus {     
+    background-color:green;
+    color:white;
+
+}
+.none{
+    display: none;
+}
+
+    
+    </style>
+<div class="container" id="container">
+    <center>
+        <h2>Simple Calculator By AHK WEB SOLUTIONS</h2>
+        <form onsubmit="return false">
+        <input  type="text" placeholder="Enter Number" name="inta" id="inta" />
+        <br>
+        <select name="operator" id="op"   >
+            <option value="">Select</option>
+            <option value="+" selected>+</option>
+            <option value="-">-</option>
+            <option value="*">X</option>
+            <option value="/">/</option>
+        </select>
+        <br>
+        <input type="text" placeholder="Enter Number" name="intb" id="intb"  />
+        <br><br>
+        <button class="button"  type="submit" onclick="calculate()">Calculate</button>
+        <input class="none" type="text" name="result" id="result"  readonly />
+        <input class="none" type="button" id="copy" onclick="myFunction()" value="Copy Sum">
+        <br>
+        <input class="none" type="reset" id="reset"  value="Reset Data">
+
+    </form>
+    </center>
+    <br>
+</div>
+</body>
+
+<script type="text/javascript">
+    
+    function calculate() {
+        var int = document.getElementById('inta').value; 
+        var int2 = document.getElementById('intb').value;
+        var operator = document.getElementById('op').value;
+
+        // Remove The None Class From result Id 
+
+        document.getElementById("result").classList.remove("none");
+        document.getElementById("copy").classList.remove("none");
+        document.getElementById("reset").classList.remove("none");
+        
+        
+
+
+       if (operator == '+' ) {
+           var result =  parseFloat(int) + parseFloat(int2);
+
+           
+       }
+
+       if (operator == '-') {
+           var result = parseFloat(int) - parseFloat(int2);
+           
+       }
+       if (operator == '*') {
+           var result = parseFloat(int) * parseFloat(int2);
+                      
+       }
+       if (operator == '/') {
+           var result = parseFloat(int) / parseFloat(int2);
+                      
+       }
+       if (int <= 0  ) {
+           var res = "Sum Will not show with 0";
+           var result = res ;
+           document.getElementById("copy").classList.add("none");
+           document.getElementById("reset").classList.add("none");
+            // alert('Entered Data iS Not Correct!! Please Enter Valid data')
+       }
+       if (int2 <= 0  ) {
+           var res = "Sum Will not show with 0";
+           var result = res ;
+           document.getElementById("copy").classList.add("none");
+           document.getElementById("reset").classList.add("none");
+            // alert('Entered Data iS Not Correct!! Please Enter Valid data')
+       }
+        document.getElementById('result').value = result;
+      
+   
+}
+function myFunction() {
+      /* Get the text field */
+      var copyText = document.getElementById("result");
+    
+      /* Select the text field */
+      copyText.select();
+    //   copyText.setSelectionRange(0, 99999); /* For mobile devices */
+    
+      /* Copy the text inside the text field */
+      navigator.clipboard.writeText(copyText.value);
+      
+      /* Alert the copied text */
+      alert("Copied the text: " + copyText.value);
+}
+
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+</html>
