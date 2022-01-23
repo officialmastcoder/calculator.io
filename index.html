@@ -98,6 +98,7 @@
             <option value="-">-</option>
             <option value="*">X</option>
             <option value="/">/</option>
+            <option value="%">/</option>
         </select>
         <br>
         <input type="text" placeholder="Enter Number" name="intb" id="intb"  />
@@ -147,6 +148,10 @@
        }
        if (operator == '/') {
            var result = parseFloat(int) / parseFloat(int2);
+                      
+       }
+        if (operator == '%') {
+           var result = parseFloat(int) / 100 * parseFloat(int2);
                       
        }
        if (int <= 0  ) {
